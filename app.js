@@ -16,19 +16,19 @@ function navigateToPage(hash) {
     // 해시에 따라 페이지를 구분하여 해당 페이지의 내용을 로드
     switch (hash) {
         case '#home':
-            fetchAndDisplayPage("SJ'sHomepage.html");
+            fetchAndDisplayPage("SJ'sHomepage.html" + page);
             break;
-        case '#Profile':
-            fetchAndDisplayPage("Profile.html");
+        case '#profile':
+            fetchAndDisplayPage("Profile.html" + page);
             break;
-        case '#LifeStory': // URL 인코딩된 버전 사용
-            fetchAndDisplayPage("LifeStory.html");
+        case '#lifeStory': // URL 인코딩된 버전 사용
+            fetchAndDisplayPage("LifeStory.html" + page);
             break;
-        case '#UsefulThings': // URL 인코딩된 버전 사용
-            fetchAndDisplayPage("UsefulThings.html");
+        case '#usefulThings': // URL 인코딩된 버전 사용
+            fetchAndDisplayPage("UsefulThings.html" + page);
             break;
         default:
-            fetchAndDisplayPage('404.html');
+            fetchAndDisplayPage('404.html' + page);
             break;
     }
 }
@@ -36,14 +36,21 @@ function navigateToPage(hash) {
 // 특정 HTML 파일을 가져와서 내용을 표시하는 함수
 function fetchAndDisplayPage(page) {
     fetch(page)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('HTTP error ' + response.status);
+            }
+            return response.text();
+        })
         .then(html => {
-            document.getElementById('content').innerHTML = html;
+            document.getElementById('content').innerHTML = html; // content 요소에 페이지 내용 삽입
         })
         .catch(error => {
             console.error('페이지를 불러오는 중 오류 발생:', error);
+            document.getElementById('content').innerHTML = '<p>페이지를 찾을 수 없습니다.</p>';
         });
 }
+
 
 // 초기화 함수 호출
 init();
