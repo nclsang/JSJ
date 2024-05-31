@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Life Story</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        /* About my life 글자 설정 */
+        div {
+            color: black;
+            margin-top: 2%;
+            font-size: 32px;
+            text-align: center;
+        }
+        /* 오른쪽 상단에 위치하는 메뉴 스타일 설정 */
+        .top-menu {
+            position: absolute;
+            top: 0; /* 상단에 위치 */
+            right: 0; /* 오른쪽에 위치 */
+            margin: 10px; /* 상하좌우에 10px의 여백 */
+        }
+         /* 메뉴 글자 설정 */
+        .top-menu a {
+            color: grey;
+            text-decoration: none; /* 메뉴 글자에 밑줄 제거 */
+            padding: 10px; /* 메뉴 글자 주위에 10px의 여백 */
+            font-size: 14px;
+        }
+         /* 메뉴 글자에 마우스를 올렸을 때 설정 */
+        .top-menu a:hover {
+            font-size: large;
+            color: black; /* 마우스를 올렸을 때 링크 텍스트 색상 변경 */
+        }
+        /* 내비게이션 바 설정 */
+        nav {
+            text-align: center; /* 텍스트를 가운데 정렬 */
+            background-color: #5e5e5e;
+            overflow: hidden; /* 콘텐츠가 넘칠 경우 숨김 */
+            position: fixed;
+            top: 12%; /* 상단에서 12% 아래에 위치 */
+            right: 1%; /* 오른쪽에서 1% 떨어진 위치에 고정 */
+        }
+        /* 내비게이션 글자 설정 */
+        nav a {
+            display: inline-block; /* 인라인 블록 요소로 설정 */
+            color: white; /* 내비게이션 글자 색상 */
+            text-align: center; /* 내비게이션 글자 가운데 정렬 */
+            padding: 10px 8px; /* 내비게이션 글자 주위에 여백 설정 */
+            font-size: 13px;
+            text-decoration: none; /* 내비게이션 글자에 밑줄 제거 */
+        }
+        /* 마우스를 올렸을 때 배경색 설정 */
+        nav a:hover {
+            background-color: #ddd; /* 마우스를 올렸을 때 배경색 변경 */
+            color: black; /* 마우스를 올렸을 때 텍스트 색상 변경 */
+        }
+        /* h3 문장 스타일 */
+        h3 {
+            margin-left: 10%; /* 왼쪽에 10%의 여백 */
+            font-size: 24px; /* 글자 크기 설정 */
+        }
+        /* p 문장 스타일 */
+        p {
+            margin-left: 10%; /* 왼쪽에 10%의 여백 */
+            color: rgb(70, 70, 70);
+        }
+
+        /* 맨 하단 top 버튼 스타일 */
+        .top-button {
+            position: fixed; /* 화면의 특정 위치에 고정 */
+            bottom: 20px; /* 하단에서 20px 위에 위치 */
+            right: 20px; /* 오른쪽에서 20px 떨어진 위치에 고정 */
+            padding: 10px 20px; /* 버튼 주위에 여백 설정 */
+            background-color: #5e5e5e;
+            color: white;
+            border: none; /* 테두리 제거 */
+            cursor: pointer; /* 마우스를 올렸을 때 포인터 표시 */
+            display: none; /* 페이지 맨 위에 있을 때 버튼 숨김 */
+        }
+        /* 마우스를 올렸을 때 설정 */
+        .top-button:hover {
+            background-color: #444444; /* 마우스를 올렸을 때 배경색 변경 */
+        }
+        /* footer 스타일 */
+        footer {
+            position: relative; /* 다른 요소들과의 상대적 위치 설정 */
+            width: 100%; /* 너비 100% 설정 */
+            background-color: white;
+            padding: 10px; /* 안쪽 여백 설정 */
+            font-size: 10px; /* 글자 크기 설정 */
+            color: grey;
+            text-align: center; /* 텍스트 가운데 정렬 */
+            bottom: 0px; /* 아래쪽에서부터 0px 위치에 고정 */
+        }
+
+        /* 스마트폰 화면에서는 내비게이션 바를 맨 아래에 고정 */
+        @media only screen and (max-width: 600px) {
+            .top-menu {
+                position: relative;
+                text-align: center;
+                margin: 10px; /* 상하좌우에 10px의 여백 */
+            }
+            nav {
+                position: fixed; /* 화면의 특정 위치에 고정 */
+                bottom: 0; /* 하단에 위치 */
+                top: auto; /* 상단 위치 자동 */
+                left: 0; /* 왼쪽에 위치 */
+                right: 0; /* 오른쪽에 위치 */
+                z-index: 10; /* z-index 설정으로 다른 요소보다 위에 표시 */
+            }
+            nav a {
+                padding: 7px 13px; /* 글자 주위에 여백 설정 */
+                font-size: 13px;
+            }
+            .top-button {
+                padding: 5px 10px; /* 버튼 주위에 여백 설정 */
+                margin-bottom: 7%; /* 하단 여백 설정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 제목 -->
+    <div><b>About My Life</b></div>
+    <!-- 상단 메뉴 -->
+    <div class="top-menu">
+        <a href="SJ'sHomepage.html">Home</a>
+        <a href="Profile.html">Profile</a>
+        <a href="UsefulThings.html">Will update soon!</a>
+    </div>
+    
+    <!-- 내비게이션 바 -->
+    <nav id="navbar">
+        <a href="#age0-9">Age 0-9</a>
+        <a href="#age10-19">Age 10-19</a>
+        <a href="#age20-now">Age 20-now</a>
+    </nav>
+
+    <!-- 본문 내용 -->
+    <br><br><br><br>
+    <h3 id="age0-9"><b>- Age of 0~9</b></h3>
+    <p>Honestly, I don't remember clearly what I did at this age, but I'll try to keep my memory alive as much as possible.</p>
+    <p>First of all, my hometown is Sokcho. Of course, Sokcho is famous for the East Sea. I remember going around with my family a lot when I was young.</p>
+    <p>And, I traveled to <a href="https://namu.wiki/w/%EC%BA%84%EB%B3%B4%EB%94%94%EC%95%84"><b>Cambodia</b></a> with my mom, cousin sisters, aunt, and Maternal grandmother.</p>
+    <p>Unfortunately, It was before I went to the kindergarten, so I can't remember what I did and what I saw at that time.</p>
+    <p>But I think it was a very good trip for me, because the memory of this trip remains a happy memory.</p><br>
+    <p><b>I entered <a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EC%86%8C%EC%95%BC%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90">Soya Elementary School</a> when I was 8 years old.</b></p>
+    <p>But, I went to this school only for the first semester and my family moved to Incheon in the second semester.</p>
+    <p>The school I went was <a href="https://namu.wiki/w/%EC%9D%B8%EC%B2%9C%EA%B3%A0%EC%9E%94%EC%B4%88%EB%93%B1%ED%95%99%EA%B5%90"><b>Gojan Elementary School.</b></a></p>
+    <br><br><br><br>
+    <h3 id="age10-19"><b>- Age of 10~19</b></h3>
+    <p><b>The year of 6th grade's winter vacation,</b> I went abroad to Spain and France with my aunts, uncles, and cousin sisters.</p>
+    <p>First, I went to Spain, and I went to <a href="https://namu.wiki/w/%EC%82%AC%EA%B7%B8%EB%9D%BC%EB%8B%A4%20%ED%8C%8C%EB%B0%80%EB%A6%AC%EC%95%84%20%EB%8C%80%EC%84%B1%EB%8B%B9"><b>Sagrada Familia</b></a>
+        and also <a href="https://namu.wiki/w/%EC%8A%A4%ED%8F%AC%ED%8B%B0%ED%8C%8C%EC%9D%B4%20%EC%BA%84%20%EB%85%B8%EC%9A%B0?from=%EC%BA%84%ED%94%84%EB%88%84"><b>Camp Nou</b></a> to watch soccer.</p>
+    <p>It was a match between FC Barcelona and AT Madrid.</p>
+    <p>At that time, there were so many famous players such as Messi, Neymar, Suarez, Griezmann, and Torres!!</p>
+    <p>It was a really happy moment. The game was a 3-1 victory for Barcelona.</p>
+    <p>Watching this game may be the top three happiest moments of my life.</p>
+    <p>After graduating elementary school in Incheon, I moved back to Sokcho.</p><br>
+    <p><b>At the age of 14,</b> I entered Sokcho Middle School.</p>
+    <p>Until then, my dream was to be a soldier. That was because the drama <a href="https://namu.wiki/w/%ED%83%9C%EC%96%91%EC%9D%98%20%ED%9B%84%EC%98%88"><b>'Descendants of the Sun'</b></a> was popular at that time.</p>
+    <p>I was attracted to the drama and dreamed of becoming a soldier and prepared to enter the <a href="https://namu.wiki/w/%EC%9C%A1%EA%B5%B0%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90"><b>Korea military academy.</b></a></p>
+    <p>I thought I should work harder, so I even got second place in my school.</p>
+    <p>However, that dream did not last long, and I finally decided to go to a regular high school.</p><br>
+    <p><b>I entered <a href="https://namu.wiki/w/%EC%86%8D%EC%B4%88%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90"><b>Sokcho High School</b></a> at the age of 17.</b></p>
+    <p>Everyone knows that high school was the most important time.but,,, I was stupid.</p>
+    <p>I worked hard until the first grade, but I gradually started to play games and neglected my studies.</p>
+    <p>Now that I think about it, I really regret it. Why did I do that? ... </p>
+    <p>So I failed my initial goal of In Seoul and it became the most regrettable moment in my life.</p>
+    <br><br><br><br>
+    <h3 id="age20-now"><b>- Age of 20~now</b></h3>
+    <p><b>At the age of 20,</b> I entered <a href="https://namu.wiki/w/%EA%B0%95%EC%9B%90%EB%8C%80%ED%95%99%EA%B5%90"><b>Kangwon University.</b></a> And my department is computer engineering.</p>
+    <p>I lived in a university dormitory, and this was my first time living alone in another region.</p>
+    <p>At first, I was very lonely, but I became close to my roommate and got better soon.</p><br>
+    <p><b>21 years old, on May 9, 2022,</b> I joined the army for 18 months.</p>
+    <p>After a month of training at the Nonsan Training Center, I was placed in a place called <a href="https://namu.wiki/w/%EC%A0%9C52%EB%B3%B4%EB%B3%91%EC%97%AC%EB%8B%A8"><b>the Communications Company of the 52nd Brigade of the 12th Division</b></a> in Wontong, Inje.</p>
+    <p>There, I was a communications soldier (system installation soldier).</p>
+    <p>I didn't want to spend any meaningless time in the military.So I learned my specialty and exercised harder than anyone else.</p>
+    <p>As a result, I served as a squad commander and got a special fighter and advanced to the sergeant early.</p>
+    <p>Surely it was a really meaningful moment.</p><br>
+    <p><b>In June 2023,</b> I had a really hard training called KCTC.</p>
+    <p>It was a mock war with other units, and it was the biggest training. I spent two weeks in a tent and in a car.</p>
+    <p>During this training, I was able to solve the question of what I would do if a person was in an extreme situation. It was a training that I learned a lot.</p>
+    <p><b>I went on vacation in August,</b> and went on a trip to Busan with my younger brother.</p>
+    <p>When I heard Paris-Saint-German FC was invited to Korea, I decided that I had to watch the game between PSG and Jeonbuk in Busan.</p>
+    <p>I was a big fan of Neymar, and Lee Kang-in had transfer to that team. So, for me, it was lucky.</p>
+    <p><b>On November 8,</b> I was finally discharged from the military. It was the happiest moment in my whole life. For sure, can't forget that Happiness until I die.</p>
+    <p>Three days later, I went to Waterpia for a part-time job. Now that I think about it, I think I lived really hard.</p><br>
+    <p>I worked part-time job until <b>January 2024</b> in <a href="https://namu.wiki/w/%EC%84%A4%EC%95%85%20%EC%9B%8C%ED%84%B0%ED%94%BC%EC%95%84?from=%EC%9B%8C%ED%84%B0%ED%94%BC%EC%95%84"><b>Waterpia</b></a>, and returned to university in March.</p>
+    <p>Since then, I have been attending college and am satisfied with my own. I will definitely live harder in the future!!</p>
+    <br><br><br><br><br>
+    <!-- 하단 footer -->
+    <footer>
+        Copyright © 2024 S.J.Jeon. All rights reserved. - 2024.05.25 -
+    </footer>
+
+    <!-- 맨 하단 top 버튼 -->
+    <button onclick="topFunction()" class="top-button" id="myBtn">Top</button>
+
+    <script>
+        // 페이지가 로드되면 실행될 함수
+        window.onload = function() {
+            // 스크롤 위치를 감지하고 top 버튼을 표시 또는 숨김
+            window.onscroll = function() {scrollFunction()};
+        };
+
+        // 스크롤 위치에 따라 top 버튼을 표시하거나 숨기는 함수
+        function scrollFunction() {
+            // 스크롤 위치가 20px 이상이면 버튼 표시, 그렇지 않으면 숨김
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // top 버튼 클릭 시 맨 위로 부드럽게 스크롤하는 함수
+        function topFunction() {
+            // Safari용 스크롤 설정
+            document.body.scrollTop = 0;
+            // Chrome, Firefox, IE, Opera용 스크롤 설정
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
