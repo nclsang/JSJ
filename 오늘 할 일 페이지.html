@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>오늘 할 일 - To Do List</title>
+    <style>
+        #todoList {
+            margin-top: 20px;
+        }
+        .todoItem {
+            cursor: pointer;
+        }
+        #resetButton {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            cursor: pointer;
+        }
+        #currentTime {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+    <script>
+        var todoList = []; // 할 일 목록을 배열로 저장
+
+        window.onload = function () {
+            var inputTodo = document.getElementById("todo");
+            var todoListDiv = document.getElementById("todoList");
+            var resetButton = document.createElement("button");
+            resetButton.textContent = "초기화";
+            resetButton.setAttribute("id", "resetButton");
+            resetButton.addEventListener("click", function() {
+                todoList = [];
+                updateTodoList();
+            });
+            document.body.appendChild(resetButton);
+
+            // 시간 업데이트 함수
+            function updateTime() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                var timeString = zeroPadding(hours) + ":" + zeroPadding(minutes) + ":" + zeroPadding(seconds);
+                document.getElementById("currentTime").textContent = timeString;
+            }
+
+            // 0을 붙여주는 함수
+            function zeroPadding(num) {
+                return (num < 10 ? '0' : '') + num;
+            }
+
+            // 페이지 로드시 시간 업데이트 및 1초마다 업데이트
+            updateTime();
+            setInterval(updateTime, 1000);
+
+            inputTodo.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    addTodo();
+                }
+            });
+
+            function addTodo() {
+                var todo = document.getElementById("todo").value;
+                todoList.push(todo); // 새로운 할 일을 배열에 추가
+                updateTodoList(); // 할 일 목록 업데이트
+                inputTodo.value = ""; // 입력 필드 비우기
+            }
+
+            todoListDiv.addEventListener("click", function(event) {
+                if (event.target.classList.contains("todoItem")) {
+                    var index = Array.from(todoListDiv.children).indexOf(event.target);
+                    todoList.splice(index, 1); // 클릭한 할 일을 배열에서 삭제
+                    updateTodoList(); // 할 일 목록 업데이트
+                }
+            });
+
+            function updateTodoList() {
+                todoListDiv.innerHTML = ""; // 할 일 목록 초기화
+                todoList.forEach(function(todo, index) {
+                    var todoItem = document.createElement("p");
+                    todoItem.classList.add("todoItem");
+                    todoItem.textContent = "▶ " + todo;
+                    todoListDiv.appendChild(todoItem);
+                });
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>오늘 할 일 페이지</h1>
+    <h2>(To Do List Page)</h2>
+    <h4>※ 오늘 할 일을 입력하면 아래 빈 곳에 할 일이 추가됩니다.</h4>
+    <h4>※ 할 일을 끝냈을 때, 클릭하면 삭제됩니다.</h4>
+    <h4>※ 초기화 버튼을 누르면 입력한 할 일들이 모두 삭제됩니다.</h4>
+    <div id="currentTime"></div>
+    <input type="text" id="todo" placeholder="오늘 할 일을 입력하세요">
+    <div id="todoList"></div>
+</body>
+</html>

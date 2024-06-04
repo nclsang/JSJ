@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>상준의 홈페이지</title>
+        <script>
+            window.onload = function () {
+                var inputTodo = document.getElementById("todo");
+                var todayTodo = document.getElementById("todayTodo");
+                
+                todayTodo.addEventListener("click", function() {
+                    newWindow = window.open(
+                        "file:///C:/Users/nclsa/Desktop/%EC%98%A4%EB%8A%98%20%ED%95%A0%20%EC%9D%BC%20%ED%8E%98%EC%9D%B4%EC%A7%80.html",
+                        "new_window",
+                        "width=360,height=800"
+                    );
+                });
+            };
+          </script>
+    </head>
+    <body>
+        <h1 id="todayTodo" style="cursor: pointer;">오늘 할 일</h1>
+    </body>
+</html>
